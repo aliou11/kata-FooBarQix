@@ -10,6 +10,8 @@ import java.util.List;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import fr.aba.kata.mini.FooBarQix;
@@ -19,6 +21,8 @@ import fr.aba.kata.mini.FooBarQix;
 public class FooBarQixTest {
 	
 	private FooBarQix fooBarQix;
+	
+	private static Logger logger = LoggerFactory.getLogger(FooBarQixTest.class);
 	
 	@Before
 	public void setUp() {
@@ -32,9 +36,8 @@ public class FooBarQixTest {
 	@Test
 	public void testFindAll() {
 
-		List<Integer> tab= new ArrayList<Integer>();
 		for(int i = 1; i<=100;i++) {
-			System.out.println(i+" - "+fooBarQix.traiterFooBarQiX(i));
+			logger.info(i+" - "+fooBarQix.traiterFooBarQiX(i));
 		}
 		
 		

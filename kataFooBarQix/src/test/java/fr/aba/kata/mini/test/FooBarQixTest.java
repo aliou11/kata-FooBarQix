@@ -67,7 +67,7 @@ public class FooBarQixTest {
 
 	@After
 	public void tearDown() {
-		
+		fooBarQix=null;
 		
 	}
 

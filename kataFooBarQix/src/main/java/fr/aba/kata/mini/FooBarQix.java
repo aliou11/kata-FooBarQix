@@ -1,9 +1,9 @@
 package fr.aba.kata.mini;
 
-
 import fr.aba.kata.mini.funct.Divisible;
 
-
+import static java.lang.Character.getNumericValue;
+import static java.util.stream.Collectors.joining;
 
 
 public class FooBarQix {
@@ -49,26 +49,49 @@ public class FooBarQix {
 	/**
 	 * 
 	 * @param numberPut
-	 * @retourne la valeur corresponant pour les divisible de 3 et 5
+	 * @retourne la valeur corresponante pour les divisible de 3 et 5
 	 */
 	private String divisibleBy(int numberPut) {
 		
 		String resultat="";
+			
+			Divisible divsible = x ->  getResuDiv( x);
+			
+		    resultat=divsible.traiter(numberPut);
+		  
+	    return resultat;
 		
-		Divisible divsible = x -> { 
+	}
+	/**
+	 * 
+	 * @param x
+	 * @retourne le resultat la chaine correspondant au divisible de 3 et 5
+	 */
+	private String getResuDiv(int x) {
 			if(x%3==0)
 			   return FooBarQixVAL.FOO.toString();
 			if(x%5==0)
 				return FooBarQixVAL.BAR.toString();
 			return "";
-		  };
-
-		  resultat=divsible.traiter(numberPut);
-		  
-		  return resultat;
 		
 	}
-	
+	/**
+	 * 
+	 * @param val
+	 * @returne la chaine correspondante aux valeurs fournies en entrées 
+	 */
+	private  String getResu(int val ) {
+		String str = new String("");
+		if(val==3)
+			str=FooBarQixVAL.FOO.toString();
+		else if(val==5)
+			str=FooBarQixVAL.BAR.toString();
+		else if(val==7)
+			str=FooBarQixVAL.QIX.toString();
+		
+		 return str;
+		
+	}
 	
 	/**
 	 * 
@@ -79,19 +102,17 @@ public class FooBarQix {
 	private  String contains(int saisi,String resultat) {
 		
 		String ree  =  String.valueOf(saisi);
+		
+		String resuReel=ree.chars().mapToObj(x->getResu(getNumericValue(x) )).collect(joining());
+		
 		StringBuffer strBuffer = new StringBuffer(resultat);
 		
-		for(char searchCar: ree.toCharArray()) { 
-		  if(searchCar=='3')
-			  strBuffer.append(FooBarQixVAL.FOO); 
-		  if(searchCar=='5')
-		  strBuffer.append(FooBarQixVAL.BAR); 
-		  if(searchCar=='7')
-		  strBuffer.append(FooBarQixVAL.QIX); }
-		 
+		strBuffer.append(resuReel);
+		
 		 
 		return strBuffer.toString().isEmpty()?ree:strBuffer.toString();
-		
+		 
+			
 	}
 	
 }

@@ -1,6 +1,10 @@
 package fr.aba.kata.mini;
 
+
 import fr.aba.kata.mini.funct.Divisible;
+
+
+
 
 public class FooBarQix {
 	
@@ -72,24 +76,22 @@ public class FooBarQix {
 	 * @param resultat
 	 * @retourne le valeur après avoir tester si le nombre contient 3 , 5 et 7
 	 */
-	private static String contains(int saisi,String resultat) {
+	private  String contains(int saisi,String resultat) {
 		
-		String ree=String.valueOf(saisi);
-		StringBuffer strBuffer=new StringBuffer(resultat);
-		int i=0;
-		while(i<ree.length()) {
-			char searchCar = ree.charAt(i);
-			if(searchCar=='3')
-			strBuffer.append(FooBarQixVAL.FOO);
-			if(searchCar=='5')
-			strBuffer.append(FooBarQixVAL.BAR);
-			if(searchCar=='7')
-			strBuffer.append(FooBarQixVAL.QIX);
-		  i++;
-		}
+		String ree  =  String.valueOf(saisi);
+		StringBuffer strBuffer = new StringBuffer(resultat);
 		
+		for(char searchCar: ree.toCharArray()) { 
+		  if(searchCar=='3')
+			  strBuffer.append(FooBarQixVAL.FOO); 
+		  if(searchCar=='5')
+		  strBuffer.append(FooBarQixVAL.BAR); 
+		  if(searchCar=='7')
+		  strBuffer.append(FooBarQixVAL.QIX); }
+		 
+		 
 		return strBuffer.toString().isEmpty()?ree:strBuffer.toString();
-			
+		
 	}
 	
 }

@@ -65,6 +65,7 @@ public class FooBarQix {
 		
 	}
 	
+	
 	/**
 	 * 
 	 * @param saisi
@@ -74,19 +75,20 @@ public class FooBarQix {
 	private static String contains(int saisi,String resultat) {
 		
 		String ree=String.valueOf(saisi);
+		StringBuffer strBuffer=new StringBuffer(resultat);
 		int i=0;
 		while(i<ree.length()) {
 			char searchCar = ree.charAt(i);
 			if(searchCar=='3')
-				resultat+=FooBarQixVAL.FOO;
+			strBuffer.append(FooBarQixVAL.FOO);
 			if(searchCar=='5')
-				resultat+=FooBarQixVAL.BAR;
+			strBuffer.append(FooBarQixVAL.BAR);
 			if(searchCar=='7')
-				resultat+=FooBarQixVAL.QIX;
+			strBuffer.append(FooBarQixVAL.QIX);
 		  i++;
 		}
 		
-		return resultat.isEmpty()?ree:resultat;
+		return strBuffer.toString().isEmpty()?ree:strBuffer.toString();
 			
 	}
 	
